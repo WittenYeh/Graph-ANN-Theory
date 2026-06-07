@@ -1,0 +1,18 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[plain,linesnumbered]{algorithm2e}
+\usepackage{amsmath,amssymb}
+\usepackage{varwidth}
+\newcommand{\note}[1]{\quad\textrm{(note: #1)}}
+\begin{document}
+\begin{varwidth}{18cm}
+\begin{algorithm}[H]
+\DontPrintSemicolon
+$L \leftarrow$ the list of points of $P \setminus \{p\}$ sorted in ascending order of their distances to $p$\;
+\While{$L$ not empty}{
+  $u \leftarrow$ the next point in $L$\;
+  create an edge from $p$ to $u$\;
+  remove from $L$ every point $v$ satisfying $D(u, v) < \frac{1}{\alpha} \cdot D(p, v)$\note{$u$ itself is also removed}\;
+}
+\end{algorithm}
+\end{varwidth}
+\end{document}

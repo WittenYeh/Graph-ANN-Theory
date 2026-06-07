@@ -1,0 +1,15 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[plain,linesnumbered]{algorithm2e}
+\usepackage{amsmath,amssymb}
+\usepackage{varwidth}
+\begin{document}
+\begin{varwidth}{18cm}
+{\bfseries query}$(p_{\mathrm{start}}, q, Q)$\par\smallskip
+\begin{algorithm}[H]
+\DontPrintSemicolon
+run {\bfseries greedy}$(p_{\mathrm{start}}, q)$ until it self-terminates or has computed $Q$ distances\;
+\lIf{self-termination}{\Return the output of {\bfseries greedy}}
+\lElse{\Return the last hop vertex $p^{\circ}$ visited by {\bfseries greedy}}
+\end{algorithm}
+\end{varwidth}
+\end{document}

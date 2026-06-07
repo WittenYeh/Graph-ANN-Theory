@@ -1,0 +1,25 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{amsmath,amssymb}
+\usepackage{varwidth}
+\begin{document}
+\begin{varwidth}{\linewidth}
+\begin{algorithm}[H]
+\SetAlgoLined
+\DontPrintSemicolon
+\caption{$\textsc{BeamSearch}(s, q, k, L)$}
+\KwIn{Graph $G$, start node $s$, query $q$, result size $k$, search list size $L \ge k$}
+\KwOut{Result set $\mathcal{L}$ ($k$-approx nearest neighbors) and visited set $\mathcal{V}$}
+$\mathcal{L} \leftarrow \{s\}$,\quad $\mathcal{E} \leftarrow \emptyset$,\quad $\mathcal{V} \leftarrow \emptyset$\;
+\While{$\mathcal{L} \setminus \mathcal{E} \neq \emptyset$}{
+  $p^{\circ} \leftarrow \arg\min_{x \in \mathcal{L} \setminus \mathcal{E}} D(x, q)$\;
+  $\mathcal{L} \leftarrow \mathcal{L} \cup \big(N_{\mathrm{out}}(p^{\circ}) \setminus \mathcal{V}\big)$,\quad $\mathcal{E} \leftarrow \mathcal{E} \cup \{p^{\circ}\}$\;
+  \If{$|\mathcal{L}| > L$}{
+    update $\mathcal{L}$ to retain the $L$ closest points to $q$\;
+  }
+  $\mathcal{V} \leftarrow \mathcal{V} \cup N_{\mathrm{out}}(p^{\circ})$\;
+}
+\Return the $k$ closest points from $\mathcal{V}$;\ \ $\mathcal{V}$\;
+\end{algorithm}
+\end{varwidth}
+\end{document}

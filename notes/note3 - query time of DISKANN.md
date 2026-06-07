@@ -1,4 +1,4 @@
-# 【NOTE 3】Query Time of Proximity Graph
+# 【NOTE 3】Query Time of DISKANN
 
 ---
 

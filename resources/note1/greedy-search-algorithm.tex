@@ -1,0 +1,20 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[plain,linesnumbered]{algorithm2e}
+\usepackage{amsmath,amssymb}
+\usepackage{varwidth}
+\newcommand{\cmt}[1]{\quad\textrm{/* #1 */}}
+\begin{document}
+\begin{varwidth}{18cm}
+{\bfseries greedy}$(p_{\mathrm{start}}, q)$\par\smallskip
+\begin{algorithm}[H]
+\DontPrintSemicolon
+$p^{\circ} \leftarrow p_{\mathrm{start}}$\cmt{the first hop}\;
+\KwSty{repeat}\;
+\Indp
+  $p^{+}_{\mathrm{out}} \leftarrow$ the out-neighbor of $p^{\circ}$ closest to $q$\cmt{$p^{+}_{\mathrm{out}}=$ nil if $p^{\circ}$ has no out-neighbors}\;
+  \lIf{$p^{+}_{\mathrm{out}} =$ \textnormal{nil} \textnormal{\textbf{or}} $D(p^{\circ}, q) \le D(p^{+}_{\mathrm{out}}, q)$}{\Return $p^{\circ}$}
+  $p^{\circ} \leftarrow p^{+}_{\mathrm{out}}$\cmt{the next hop}\;
+\Indm
+\end{algorithm}
+\end{varwidth}
+\end{document}
